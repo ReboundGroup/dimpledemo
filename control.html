@@ -11,6 +11,11 @@
     #__bundler_thumbnail { position: fixed; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #0A2240; z-index: 9999; }
     #__bundler_thumbnail svg { width: 100%; height: 100%; object-fit: contain; }
     #__bundler_placeholder { color: #999; font-size: 14px; }
+    #__bundler_thumbnail svg { display: none; }
+    #__bundler_loading { opacity: 0; animation: __bl_show 0s 3s forwards; }
+    @keyframes __bl_show { to { opacity: 1; } }
+    body, #__bundler_thumbnail { background: linear-gradient(to right, #0A2240 52%, #FAF7F2 52%); }
+    @media (max-width: 860px) { body, #__bundler_thumbnail { background: #FAF7F2; } }
   </style>
   <noscript>
     <style>#__bundler_loading { display: none; }</style>
