@@ -1,0 +1,17 @@
+# Cloudflare Pages reads this file to customize response headers.
+# These are self-contained, single-file HTML pages (fonts/images/scripts
+# all base64-embedded inline), so a full page load is a few hundred KB
+# to ~800KB and briefly shows a loading placeholder while it downloads
+# and decodes. Cloudflare's default `Cache-Control: max-age=0,
+# must-revalidate` forces a network round trip on every single visit,
+# even when nothing changed, making that loading flash happen far more
+# often than necessary.
+#
+# max-age=60 treats the page as fresh for a minute (no network check at
+# all), and stale-while-revalidate=86400 means that for up to a day
+# after that, the browser shows the cached copy instantly while quietly
+# re-fetching a fresh one in the background for next time. New pushes
+# still show up within a minute or so; repeat visits in between load
+# instantly instead of re-downloading.
+/*
+  Cache-Control: public, max-age=60, stale-while-revalidate=86400
