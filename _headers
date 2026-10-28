@@ -13,5 +13,10 @@
 # re-fetching a fresh one in the background for next time. New pushes
 # still show up within a minute or so; repeat visits in between load
 # instantly instead of re-downloading.
+#
+# X-Robots-Tag keeps this demo out of search results. There is deliberately
+# no robots.txt Disallow, so crawlers can still fetch the pages and see the
+# noindex, and link-preview bots (Slack, iMessage) keep working.
 /*
   Cache-Control: public, max-age=60, stale-while-revalidate=86400
+  X-Robots-Tag: noindex, nofollow
